@@ -22,7 +22,6 @@ function addContact ( event ) {
 
   contacts.push( contact );
   saveContacts();
-  drawContacts();
   form.reset();
 }
 
@@ -35,6 +34,8 @@ function saveContacts () {
   console.log( contactsString );
 
   window.localStorage.setItem( "contacts", contactsString );
+
+  drawContacts();
 }
 
 /**
@@ -71,7 +72,7 @@ function drawContacts () {
             <i class="fa fa-fw fa-phone"></i>
             <span>${contact.phone}</span>
           </p>
-          <i class="action fa fa-trash text-danger"></i>
+          <button type="button" onclick="removeContact(${contact.id})">remove</button>
         </div>
       </div>
     `;
@@ -90,6 +91,13 @@ function drawContacts () {
  * @param {string} contactId 
  */
 function removeContact ( contactId ) {
+  console.log( "remove contact", contactId );
+  let index = contacts.findIndex( contact => contact.id == contactId );
+  if ( index == -1 ) {
+    throw new Error( "Invalid Contact Id" );
+  }
+  contacts.splice( index, 1 )
+  saveContacts();
 }
 
 /**
