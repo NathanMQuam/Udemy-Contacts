@@ -9,7 +9,7 @@ let contacts = []
  * *** hints:
  * *** push: resources/push.jpg
  */
-function addContact(event) {
+function addContact ( event ) {
   event.preventDefault();
   let form = event.target;
 
@@ -23,16 +23,17 @@ function addContact(event) {
   contacts.push( contact );
   saveContacts();
   form.reset();
-
-  //console.log(JSON.stringify(contact));
 }
 
 /**
  * Converts the contacts array to a JSON string then
  * Saves the string to localstorage at the key contacts 
  */
-function saveContacts() {
- 
+function saveContacts () {
+  let contactsString = JSON.stringify( contacts );
+  console.log( contactsString );
+
+  window.localStorage.setItem( "contacts", contactsString );
 }
 
 /**
@@ -40,8 +41,8 @@ function saveContacts() {
  * then parses the JSON string into an array. Finally sets
  * the contacts array to the retrieved array
  */
-function loadContacts() {
-  
+function loadContacts () {
+
 }
 
 /**
@@ -49,8 +50,8 @@ function loadContacts() {
  * DOM and adds a new div element for each of the
  * contacts in the contacts array
  */
-function drawContacts() {
- 
+function drawContacts () {
+
 }
 
 /**
@@ -62,13 +63,13 @@ function drawContacts() {
  * *** splice: resources/splice.jpg
  * @param {string} contactId 
  */
-function removeContact(contactId) {
+function removeContact ( contactId ) {
 }
 
 /**
  * Toggles the visibility of the AddContact Form
  */
-function toggleAddContactForm() {
+function toggleAddContactForm () {
 
 }
 
@@ -78,8 +79,8 @@ function toggleAddContactForm() {
  * database generated Id
  * @returns {string}
  */
-function generateId() {
-  return Math.floor(Math.random() * 10000000) + "-" + Math.floor(Math.random() * 10000000)
+function generateId () {
+  return Math.floor( Math.random() * 10000000 ) + "-" + Math.floor( Math.random() * 10000000 )
 }
 
 
