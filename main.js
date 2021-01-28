@@ -42,7 +42,10 @@ function saveContacts () {
  * the contacts array to the retrieved array
  */
 function loadContacts () {
-
+  let contactsData = JSON.parse( window.localStorage.getItem( "contacts" ) );
+  if ( contactsData ) {
+    contacts = contactsData;
+  }
 }
 
 /**
