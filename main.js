@@ -10,7 +10,21 @@ let contacts = []
  * *** push: resources/push.jpg
  */
 function addContact(event) {
-  
+  event.preventDefault();
+  let form = event.target;
+
+  let contact = {
+    id: generateId(),
+    name: form.name.value,
+    phone: form.phone.value,
+    emergencyContact: form.emergencyContact.checked
+  }
+
+  contacts.push( contact );
+  saveContacts();
+  form.reset();
+
+  //console.log(JSON.stringify(contact));
 }
 
 /**
