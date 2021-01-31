@@ -31,7 +31,6 @@ function addContact ( event ) {
  */
 function saveContacts () {
   let contactsString = JSON.stringify( contacts );
-  console.log( contactsString );
 
   window.localStorage.setItem( "contacts", contactsString );
 
@@ -72,7 +71,7 @@ function drawContacts () {
             <i class="fa fa-fw fa-phone"></i>
             <span>${contact.phone}</span>
           </p>
-          <button type="button" onclick="removeContact(${contact.id})">remove</button>
+          <button type="button" onclick="removeContact(${"\'" + contact.id + "\'"})">remove</button>
         </div>
       </div>
     `;
@@ -91,7 +90,6 @@ function drawContacts () {
  * @param {string} contactId 
  */
 function removeContact ( contactId ) {
-  console.log( "remove contact", contactId );
   let index = contacts.findIndex( contact => contact.id == contactId );
   if ( index == -1 ) {
     throw new Error( "Invalid Contact Id" );

@@ -185,10 +185,10 @@ button:hover{
   font-size: 14pt;
 }
 
-.hidden{
-  display: none !important;
-}
-
 .contacts::-webkit-scrollbar {
   width: 0;
+}
+
+.hidden{
+  display: none !important;
 }
