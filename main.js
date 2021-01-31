@@ -102,7 +102,16 @@ function removeContact ( contactId ) {
  * Toggles the visibility of the AddContact Form
  */
 function toggleAddContactForm () {
+  let contactForm = document.getElementById( "new-contact-form" );
+  let addContactButton = document.getElementById( "add-contact-button" );
 
+  if ( contactForm.classList.contains( "hidden" ) ) {
+    contactForm.classList.remove( "hidden" );
+    addContactButton.classList.add( "hidden" );
+  } else {
+    contactForm.classList.add( "hidden" );
+    addContactButton.classList.remove( "hidden" );
+  }
 }
 
 
